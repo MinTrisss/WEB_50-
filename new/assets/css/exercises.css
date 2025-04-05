@@ -1,0 +1,33 @@
+body {
+    background: url('../assets/images/photo-1544033527-b192daee1f5b.jpeg') no-repeat center center fixed;
+    background-size: cover;
+    /* filter: brightness(0.5); Làm mờ nền */
+}
+
+h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #fff; /* Đổi màu chữ Exercises */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Tạo hiệu ứng nổi cho chữ */
+}
+
+.card {
+    background-color: rgba(200, 200, 200, 0.9); /* Màu xám nhạt */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    filter: brightness(1); /* Giữ nguyên độ sáng cho thẻ */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease; /* Thêm hiệu ứng chuyển động và nền sáng */
+}
+
+.card:hover {
+    transform: scale(1.05); /* Phóng to thẻ khi hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Tăng độ bóng khi hover */
+    background-color: rgba(255, 255, 255, 0.9); /* Nền sáng lên khi hover */
+}
+
+.card img {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+

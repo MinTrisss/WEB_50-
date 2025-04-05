@@ -34,5 +34,4 @@
         <p class="signup-text">Don't have account? <a href="#">Sign up</a></p>
     </div>
 </body>
-<?php include 'includes/footer.php'; ?>
 </html>

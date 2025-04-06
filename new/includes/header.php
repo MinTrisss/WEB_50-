@@ -1,7 +1,7 @@
 <header>
         <div class="header d-flex text-white-65">
-              <div class="p-3 flex-fill align-items-center">
-                    <img src="assets/images/1813361.png" alt="">
+              <div class="p-3 d-flex flex-fill align-items-center justify-content-center">
+                    <h2>FIT LIFE</h2>
               </div>
               <div class="p-3 d-flex flex-fill flex-row-reverse ">
                     <a class="p-3 flex-fill nav-link active" href="../pages/login.php">LOG IN</a>

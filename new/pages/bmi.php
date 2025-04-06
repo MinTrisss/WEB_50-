@@ -8,44 +8,51 @@
       <link rel="stylesheet" href="../assets/css/home.css">
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-      <script src=""></script>
 </head>
 <body>
-<header>
-        <div class="header d-flex text-white-65">
-              <div class="p-3 flex-fill align-items-center">
-                    <img src="assets/images/1813361.png" alt="">
-              </div>
-              <div class="p-3 d-flex flex-fill flex-row-reverse ">
-                    <a class="p-3 flex-fill nav-link active" href="../pages/login.php">LOG IN</a>
-                    <div class="flex-fill">
-                          <a class="p-3 nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">EXPLORE</a>   
-                          <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Dashboard</a></li>
-                                <li><a class="dropdown-item" href="#">Workout log</a></li>
-                                <li><a class="dropdown-item" href="#">Goals</a></li>
-                                <li><a class="dropdown-item" href="../pages/bmi.php">BMI</a></li>
-                                <li><a class="dropdown-item" href="../pages/exercises.php">Excercises</a></li>
-                    </ul> 
-                    </div>       
-                    <a class="p-3 flex-fill nav-link active" href="#">ABOUT</a>
-                    <a class="p-3 flex-fill nav-link active" href="../index.php">HOME</a>
-              </div>
-        </div>
-      </header>
+<?php include '../includes/header.php'; ?>
+<?php 
+      $bmi_result='';
+      if($_SERVER['REQUEST_METHOD']=== 'POST'){
+            $weight=$_POST['weight'];
+            $height=$_POST['height'];
+
+            if($weight>0 && $weight <250 && $height>0 && $height<300){
+                  $bmi=$weight/($height/100)**2;
+                  $bmi=round($bmi,2);
+
+                  if ($bmi < 18.5) {
+                        $status = "Underweight";
+                    } elseif ($bmi < 24.9) {
+                        $status = "Normal weight";
+                    } elseif ($bmi < 29.9) {
+                        $status = "Overweight";
+                    } elseif ($bmi<35){
+                        $status = "Obese";
+                    }
+                    else {
+                        $status = "Extremely obese";
+                    }
+                  $bmi_result= "Your BMI: $bmi --> ($status)";
+            }
+            else {
+                  $bmi_result = "Please enter valid weight and height!";
+            }
+      }
+?>
       <div class="bmi-body d-flex align-items-center">
             <div class="bmi-calculate flex-fill">
-                  <form>
+                  <form method="POST">
                         <div class="mb-3 text-start">
                             <label for="weight" class="form-label fw-bold">Weight (kg)</label>
-                            <input type="number" class="form-control" id="weight" placeholder="Enter your weight">
+                            <input type="number" class="form-control" name="weight" placeholder="Enter your weight">
                         </div>
                         <div class="mb-3 text-start">
                             <label for="height" class="form-label fw-bold">Height (cm)</label>
-                            <input type="number" class="form-control" id="height" placeholder="Enter your height">
+                            <input type="number" class="form-control" name="height" placeholder="Enter your height">
                         </div>
-                        <button id="cal-btn" type="button" class="btn btn-primary w-100">Calculate BMI</button>
-                        <div class="mt-3 fw-bold" id="result">Your BMI: --</div>
+                        <button type="submit" class="btn btn-primary w-100">Calculate BMI</button>
+                        <div class="mt-3 fw-bold" id="result"><?= $bmi_result ?></div>
                     </form>
             </div>
             <div class="bmi-info flex-fill text-center">
@@ -61,6 +68,6 @@
       <div class="bmi-img d-flex justify-content-center align-items-center">
             <img src="../assets/images/BMI-TABLE.png" alt="">
       </div>
+      <?php include '../includes/footer.php'; ?>
 </body>
-<?php include '../includes/footer.php'; ?>
 </html>

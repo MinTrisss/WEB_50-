@@ -7,8 +7,12 @@
     <link rel="stylesheet" href="../assets/css/login.css">
     <link rel="stylesheet" href="../assets/themify-icons/themify-icons.css">
 </head>
+
 <body>
     <div class="login-container">
+        <div >
+            <button type="button" class="out-btn" onclick="window.history.back();">X</button>
+        </div>
         <h2>Login</h2>
         <form>
             <div class="input-group">
@@ -34,4 +38,7 @@
         <p class="signup-text">Don't have account? <a href="#">Sign up</a></p>
     </div>
 </body>
+<script>
+    documet.getElementById
+</script>
 </html>

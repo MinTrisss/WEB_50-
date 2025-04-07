@@ -35,10 +35,7 @@
                 <button class="facebook-login ti-facebook"></button>
             </div>
         </div>
-        <p class="signup-text">Don't have account? <a href="#">Sign up</a></p>
+        <p class="signup-text">Don't have account? <a href="../pages/signUp.php">Sign up</a></p>
     </div>
 </body>
-<script>
-    documet.getElementById
-</script>
 </html>

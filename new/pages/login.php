@@ -7,17 +7,16 @@
     <link rel="stylesheet" href="../assets/css/login.css">
     <link rel="stylesheet" href="../assets/themify-icons/themify-icons.css">
 </head>
-
 <body>
     <div class="login-container">
         <div >
             <button type="button" class="out-btn" onclick="window.history.back();">X</button>
         </div>
         <h2>Login</h2>
-        <form>
+        <form action="<?php echo $_SERVER['PHP_SELF']?>" method='POST'>
             <div class="input-group">
-                <label for="username">Username</label>
-                <input type="text" id="username" name="username" required>
+                <label for="username">Email or Username</label>
+                <input type="text" id="username" name="identifier" required>
             </div>
             <div class="input-group">
                 <label for="password">Password</label>
@@ -26,7 +25,7 @@
             <div class="forgot-password">
                 <a href="#">Forgot password?</a>
             </div>
-            <button type="submit" class="signin-btn">Login</button>
+            <button type="submit" name="submit" class="signin-btn">Login</button>
         </form>
         <div class="social-login">
             <p>Login with</p>
@@ -38,4 +37,43 @@
         <p class="signup-text">Don't have account? <a href="../pages/signUp.php">Sign up</a></p>
     </div>
 </body>
+
+<?php
+session_start();
+
+// connect database
+$conn = mysqli_connect('127.0.0.1', 'root', '', 'fit_life');
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+if (isset($_POST['submit'])) {
+    $identifier = mysqli_real_escape_string($conn, $_POST['identifier']);
+    $password = $_POST['password']; 
+
+    // find username or email
+    $sql = "SELECT * FROM users WHERE (email = '$identifier' OR username = '$identifier') AND provider = 'local'";
+    $result = mysqli_query($conn, $sql);
+
+    if (mysqli_num_rows($result) === 1) {
+        $user = mysqli_fetch_assoc($result);
+
+    // check password
+        if (password_verify($password, $user['password'])) {
+            $_SESSION['user_id'] = $user['id'];
+            $_SESSION['email'] = $user['email'];
+            $_SESSION['username'] = $user['username'];
+
+            header("Location: ../index.php");
+            exit();
+        } else {
+            echo "Wrong password!";
+        }
+    } else {
+        echo "Account not found.";
+    }
+}
+
+mysqli_close($conn);
+?>
 </html>

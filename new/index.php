@@ -49,13 +49,13 @@ $username = $_SESSION['username'] ?? '';
             <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"><?= $username ?></a>
             <ul class="dropdown-menu dropdown-menu-end">
-                  <li><a class="dropdown-item" href="../pages/profile.php">My Profile</a></li>
-                  <li><a class="dropdown-item" href="../pages/logout.php">Logout</a></li>
+                  <li><a class="dropdown-item" href="pages/profile.php">My Profile</a></li>
+                  <li><a class="dropdown-item" href="pages/logout.php">Logout</a></li>
             </ul>
             </li>
             <?php else: ?>
             <li class="nav-item">
-            <a class="nav-link" href="../pages/login.php">LOG IN</a>
+            <a class="nav-link" href="pages/login.php">LOG IN</a>
             </li>
             <?php endif; ?>
             </ul>

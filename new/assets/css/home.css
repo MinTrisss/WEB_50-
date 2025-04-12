@@ -9,6 +9,12 @@
       padding: 0 20px;
       box-sizing: border-box;
   }
+
+  .dropdown-menu {
+    list-style: none !important; 
+    padding-left: 0;
+    margin: 0;
+  }
   
   .body-img img {
       max-height: 100%;

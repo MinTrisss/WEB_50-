@@ -52,7 +52,7 @@ if (isset($_POST['submit'])) {
         <form action="" method="POST">
             <div class="input-group">
                 <label for="username">Email or Username</label>
-                <input type="text" id="username" name="identifier" requireda>
+                <input type="text" id="username" name="identifier" required>
             </div>
             <div class="input-group">
                 <label for="password">Password</label>
@@ -76,7 +76,5 @@ if (isset($_POST['submit'])) {
         <p class="signup-text">Don't have account? <a href="../pages/signUp.php">Sign up</a></p>
     </div>
 </body>
-
-
 
 </html>

@@ -1,22 +1,30 @@
-<header>
-        <div class="header d-flex text-white-65">
-              <div class="p-3 d-flex flex-fill align-items-center justify-content-center">
-                    <h2>FIT LIFE</h2>
-              </div>
-              <div class="p-3 d-flex flex-fill flex-row-reverse ">
-                    <a class="p-3 flex-fill nav-link active" href="../pages/login.php">LOG IN</a>
-                    <div class="flex-fill">
-                          <a class="p-3 nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">EXPLORE</a>   
-                          <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="../pages/dashboasrd.php">Dashboard</a></li>
-                                <li><a class="dropdown-item" href="../pages/workout.php">Workout log</a></li>
-                                <li><a class="dropdown-item" href="../pages/goals.php">Goals</a></li>
-                                <li><a class="dropdown-item" href="../pages/bmi.php">BMI</a></li>
-                                <li><a class="dropdown-item" href="../pages/exercises.php">Excercises</a></li>
-                    </ul> 
-                    </div>       
-                    <a class="p-3 flex-fill nav-link active" href="../pages/about.php">ABOUT</a>
-                    <a class="p-3 flex-fill nav-link active" href="../index.php">HOME</a>
-              </div>
-        </div>
-      </header>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark px-3">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">FIT LIFE</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav text-end">
+        <li class="nav-item">
+          <a class="nav-link active" href="../index.php">HOME</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="../pages/about.php">ABOUT</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">EXPLORE</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="../pages/workout.php">Workout log</a></li>
+            <li><a class="dropdown-item" href="../pages/goals.php">Goals</a></li>
+            <li><a class="dropdown-item" href="../pages/bmi.php">BMI</a></li>
+            <li><a class="dropdown-item" href="../pages/exercises.php">Exercises</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="../pages/login.php">LOG IN</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

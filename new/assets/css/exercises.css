@@ -1,5 +1,5 @@
 body {
-    background: url('../assets/images/photo-1544033527-b192daee1f5b.jpeg') no-repeat center center fixed;
+    background-image: url('../images/photo-1544033527-b192daee1f5b.jpeg') !important;
     background-size: cover;
     /* filter: brightness(0.5); Làm mờ nền */
 }
@@ -8,12 +8,12 @@ h2 {
     text-align: center;
     font-size: 2.5rem;
     font-weight: bold;
-    color: #fff; /* Đổi màu chữ Exercises */
+    color: #fff !important; /* Đổi màu chữ Exercises */
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Tạo hiệu ứng nổi cho chữ */
 }
 
 .card {
-    background-color: rgba(200, 200, 200, 0.9); /* Màu xám nhạt */
+    background-color: rgba(145, 143, 143, 0.9) !important;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     filter: brightness(1); /* Giữ nguyên độ sáng cho thẻ */

@@ -1,0 +1,74 @@
+/* goal-style.css - dùng chung cho các trang workout goals */
+
+body {
+    background: linear-gradient(to right, #1e1e1e, #2d2d2d);
+    color: #fff;
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .workout-section {
+    padding: 60px 0;
+  }
+  
+  h2 {
+    font-weight: 700;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: #ffce54;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.6);
+    text-align: center;
+  }
+  
+  .workout-card {
+    background-color: #2f2f2f;
+    color: #fff;
+    border: none;
+    border-radius: 16px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 20px;
+    height: 100%;
+  }
+  
+  .workout-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(255, 206, 84, 0.4);
+    background-color: #3a3a3a;
+  }
+  
+  .card-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #ffce54;
+  }
+  
+  .card-text {
+    font-size: 1rem;
+    opacity: 0.9;
+  }
+  
+  .back-btn {
+    margin-top: 40px;
+    text-align: center;
+  }
+  
+  .btn-back {
+    background-color: #ffce54;
+    color: #000;
+    font-weight: bold;
+    border: none;
+    border-radius: 30px;
+    padding: 10px 25px;
+    transition: 0.3s ease;
+    text-decoration: none;
+  }
+  
+  .btn-back:hover {
+    background-color: #f6b700;
+    transform: translateY(-2px);
+    color: #000;
+  }
+
+  

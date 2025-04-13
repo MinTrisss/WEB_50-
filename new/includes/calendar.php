@@ -1,18 +1,8 @@
 <?php
 session_start();
-$servername = "127.0.0.1"; // hoặc "localhost"
-$username = "root";
-$password = "";            // nếu có đặt mật khẩu thì điền vào
-$database = "fit_life";    // thay bằng tên DB của bạn
+include 'db_conn.php'; 
 
-$conn = new mysqli($servername, $username, $password, $database);
 $user_id = $_SESSION['user_id'];
-
-// Kiểm tra kết nối
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
 // Xử lý thêm ghi chú
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $date = $_POST['date'];

@@ -1,3 +1,35 @@
+<?php 
+  $conn = mysqli_connect('127.0.0.1', 'root', '', 'fit_life');
+  if (!$conn) {
+  die("Connection failed: " . mysqli_connect_error());
+  }
+
+  if(isset($_POST['submit'])){
+        $username=mysqli_real_escape_string($conn, $_POST['username']);
+        $email = mysqli_real_escape_string($conn, $_POST['email']);
+        $password = mysqli_real_escape_string($conn, $_POST['password']);
+
+        $hashed_password = password_hash($password, PASSWORD_DEFAULT); //ma hoa mat khau
+        
+        $sql = "SELECT * FROM users WHERE email = '$email' OR username = '$username'";
+        $result = mysqli_query($conn, $sql);
+        if (mysqli_num_rows($result) > 0) {
+          $error = "Username or Email existed!";
+        }
+        else {
+              $sql = "INSERT INTO users (username, email, password, provider) VALUES ('$username', '$email', '$hashed_password', 'local')";
+
+              if (mysqli_query($conn, $sql)) {
+                    header("Location: login.php");
+                    exit();
+              } else {
+                    echo "Error: " . mysqli_error($conn);
+              }
+        }
+  }
+
+  mysqli_close($conn);
+?>
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -25,43 +57,15 @@
       <div class="input-group">
         <label for="password">Password</label>
         <input type="password" id="password" name="password" required>
+        <?php if (!empty($error)): ?>
+            <p style="color: red; margin-top: 5px;"><?php echo $error; ?></p>
+        <?php endif; ?>
       </div>
       <button type="submit" class="signin-btn" name="submit">Sign Up</button>
     </form>
     <p class="signup-text">Already have an account? <a href="../pages/login.php">Login</a></p>
   </div>
-  <?php 
-      $conn = mysqli_connect('127.0.0.1', 'root', '', 'fit_life');
-      if (!$conn) {
-      die("Connection failed: " . mysqli_connect_error());
-      }
-
-      if(isset($_POST['submit'])){
-            $username=mysqli_real_escape_string($conn, $_POST['username']);
-            $email = mysqli_real_escape_string($conn, $_POST['email']);
-            $password = mysqli_real_escape_string($conn, $_POST['password']);
-
-            $hashed_password = password_hash($password, PASSWORD_DEFAULT); //ma hoa mat khau
-            
-            $sql = "SELECT * FROM users WHERE email = '$email' OR username = '$username'";
-            $result = mysqli_query($conn, $sql);
-            if (mysqli_num_rows($result) > 0) {
-            echo "Username or email existed!";
-            }
-            else {
-                  $sql = "INSERT INTO users (username, email, password, provider) VALUES ('$username', '$email', '$hashed_password', 'local')";
-
-                  if (mysqli_query($conn, $sql)) {
-                        header("Location: login.php");
-                        exit();
-                  } else {
-                        echo "Error: " . mysqli_error($conn);
-                  }
-            }
-      }
-
-      mysqli_close($conn);
-      ?>
+  
 </body>
 </html>
 

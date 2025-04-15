@@ -46,12 +46,12 @@ $username = $_SESSION['username'] ?? '';
                         <li><hr class="dropdown-divider"></li>
                         <li><button id="add-info-btn" class="dropdown-item text-danger">Edit inforrmation</button></li>
                         <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item text-danger" href="pages/logout.php">Log out</a></li>
+                        <li><a class="dropdown-item text-danger" href="../pages/logout.php">Log out</a></li>
                   </ul>
             </li>
             <?php else: ?>
             <li class="nav-item">
-            <a class="nav-link" href="pages/login.php">LOG IN</a>
+            <a class="nav-link" href="../pages/login.php">LOG IN</a>
             </li>
             <?php endif; ?>
       </ul>

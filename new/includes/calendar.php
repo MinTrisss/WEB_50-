@@ -1,29 +1,43 @@
 <?php
 session_start();
-include 'db_conn.php'; 
+include 'db_conn.php';
 
-$user_id = $_SESSION['user_id'];
-// Xử lý thêm ghi chú
+// Ghi chú (thêm hoặc cập nhật)
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $date = $_POST['date'];
-    $content = $_POST['content'];
-    $stmt = $conn->prepare("
-    INSERT INTO calendar_notes (user_id, note_date, content) 
-        VALUES (?, ?, ?)
-        ON DUPLICATE KEY UPDATE content = VALUES(content)");
-    $stmt->bind_param("iss", $user_id, $date, $content);
-    $stmt->execute();
+    $date = $_POST['date'] ?? '';
+    $content = $_POST['content'] ?? '';
+
+    if (!empty($date)) {
+        if (isset($_SESSION['user_id'])) {
+            $stmt = $conn->prepare("
+                INSERT INTO calendar_notes (user_id, note_date, content)
+                VALUES (?, ?, ?)
+                ON DUPLICATE KEY UPDATE content = VALUES(content)");
+            $stmt->bind_param("iss", $_SESSION['user_id'], $date, $content);
+            $stmt->execute();
+        } else {
+            $_SESSION['pending_notes'][$date] = $content;
+        }
+    }
 }
 
-// Lấy dữ liệu ghi chú
+// Lấy ghi chú để hiển thị
 $notes = [];
-$result = $conn->query("SELECT note_date, content FROM calendar_notes WHERE user_id = $user_id");
-while ($row = $result->fetch_assoc()) {
-    $notes[$row['note_date']] = $row['content'];
+
+if (isset($_SESSION['user_id'])) {
+    $user_id = $_SESSION['user_id'];
+    $result = $conn->query("SELECT note_date, content FROM calendar_notes WHERE user_id = $user_id");
+    while ($row = $result->fetch_assoc()) {
+        $notes[$row['note_date']] = $row['content'];
+    }
+    if (isset($_SESSION['pending_notes'])) {
+        $notes = array_merge($notes, $_SESSION['pending_notes']);
+    }
+} elseif (isset($_SESSION['pending_notes'])) {
+    $notes = $_SESSION['pending_notes'];
 }
 
-// Lấy tháng và năm
-
+// Lấy tháng & năm
 $month = $_GET['month'] ?? date('m');
 $year = $_GET['year'] ?? date('Y');
 $first_day = mktime(0, 0, 0, $month, 1, $year);
@@ -31,6 +45,7 @@ $days_in_month = date('t', $first_day);
 $start_day = date('w', $first_day);
 $today = date('Y-m-d');
 ?>
+
 <div class="container mt-4">
     <h2 class="text-center mb-4">Workout schedule - <?php echo "$month/$year"; ?></h2>
     <div class="table-responsive">

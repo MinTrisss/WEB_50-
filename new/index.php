@@ -4,6 +4,7 @@ error_reporting(E_ALL);
 session_start();
 $isLoggedIn = isset($_SESSION['user_id']);
 $username = $_SESSION['username'] ?? '';
+$gmail = $_SESSION['email'] ?? '';
 ?>
 
 
@@ -93,6 +94,10 @@ $username = $_SESSION['username'] ?? '';
       <div class="modal-body">
         <form id="updateForm" action="update_user_info.php" method="POST">
           <div class="mb-3">
+            <label for="gmail" class="form-label">Gmail:</label>
+            <input type="text" class="form-control" id="gmail" name="gmail" required>
+          </div>
+          <div class="mb-3">
             <label for="name" class="form-label">Name:</label>
             <input type="text" class="form-control" id="name" name="name" required>
           </div>
@@ -142,7 +147,8 @@ document.getElementById('userDropdown').addEventListener('click', () => {
       if (data.error) {
         document.getElementById('user-info-loading').innerText = data.error;
       } else {
-        document.getElementById('user-info-loading').innerHTML = `
+        document.getElementById('user-info-loading').innerHTML = 
+          `<div><strong>Gmail:</strong> <?= $gmail ?> </div>
           <div><strong>Name:</strong> ${data.full_name}</div>
           <div><strong>Age:</strong> ${data.age}</div>
           <div><strong>Gender:</strong> ${data.gender}</div>

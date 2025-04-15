@@ -44,7 +44,7 @@ $username = $_SESSION['username'] ?? '';
                         </li>
                         <!-- Thêm thông tin -->
                         <li><hr class="dropdown-divider"></li>
-                        <li><button id="add-info-btn" class="dropdown-item text-danger">Edit inforrmation</button></li>
+                        <li><button id="add-info-btn" class="dropdown-item text-danger">Edit information</button></li>
                         <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item text-danger" href="../pages/logout.php">Log out</a></li>
                   </ul>

@@ -2,63 +2,95 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Strength Workouts</title>
-  <link rel="stylesheet" href="../assets/css/goal-style.css">
+  <title>Strength</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <style>
-    body {
-      background-color: #f8f9fa;
-    }
-    .workout-section {
-      padding: 60px 0;
-    }
-    .workout-card {
-      border: none;
-      border-radius: 12px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
-      transition: 0.3s ease;
-    }
-    .workout-card:hover {
-      transform: scale(1.03);
-    }
-  </style>
+  <link rel="stylesheet" href="../assets/css/exercise-style.css">
+
 </head>
 <body>
 
-  <div class="container workout-section">
-    <h2 class="text-center mb-5">Strength Workouts</h2>
-    <div class="row g-4">
-      <div class="col-md-4">
-        <div class="card workout-card">
-          <div class="card-body">
-            <h5 class="card-title">Bench Press</h5>
-            <p class="card-text">Classic chest press to build upper body strength.</p>
-            <a href="exercise-detail.php" class="btn btn-primary">View Exercise</a>
-          </div>
-        </div>
+  <?php include '../includes/header.php'; ?>
+
+  <div class="exercise-container">
+
+    <div class="exercise-section">
+      
+      <div class="container exercise-detail text-white">
+
+        <!-- Video hướng dẫn -->
+        <div class="ratio ratio-16x9 mb-4">
+        <iframe src="https://www.youtube.com/embed/gRVjAtPip0Y" 
+                title="Bench Press Video" 
+                allowfullscreen></iframe>
       </div>
-      <div class="col-md-4">
-        <div class="card workout-card">
-          <div class="card-body">
-            <h5 class="card-title">Deadlift</h5>
-            <p class="card-text">Full-body compound lift focusing on back and legs.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card workout-card">
-          <div class="card-body">
-            <h5 class="card-title">Overhead Press</h5>
-            <p class="card-text">Shoulder-strengthening exercise with barbell or dumbbells.</p>
-          </div>
-        </div>
-      </div>
+
+      <h3>🏋️ Bench Press</h3>
+      <p>The bench press is a classic upper body strength exercise focusing on chest, triceps, and shoulders.</p>
+      <p><strong>Muscles worked:</strong> Chest, Shoulders, Triceps</p>
+      <p><strong>Level:</strong> Intermediate</p>
     </div>
-  </div>
+
+    <div class="exercise-section">
+      
+      <div class="ratio ratio-16x9 mb-4">
+        <iframe src="https://www.youtube.com/embed/aclHkVaku9U" 
+                title="How to Squat Properly" 
+                allowfullscreen></iframe>
+      </div>
+
+      <h3>🦵 Squats</h3>
+      <p>Squats are essential for developing leg and glute strength. Great for overall lower body development.</p>
+      <p><strong>Muscles worked:</strong> Quads, Hamstrings, Glutes</p>
+      <p><strong>Equipment:</strong> Barbell or Dumbbells</p>
+    </div>
+
+    <div class="exercise-section">
+
+      <div class="ratio ratio-16x9 mb-4">
+        <iframe src="https://www.youtube.com/embed/op9kVnSso6Q" 
+                title="How to Deadlift Properly" 
+                allowfullscreen></iframe>
+      </div>
+
+
+      <h3>🏋️ Deadlift</h3>
+      <p>Deadlifts are one of the most effective compound movements, engaging multiple muscle groups simultaneously.</p>
+      <p><strong>Muscles worked:</strong> Back, Hamstrings, Core</p>
+      <p><strong>Form Tip:</strong> Keep your back straight and core tight.</p>
+    </div>
+
+    <div class="exercise-section">
+
+      <div class="ratio ratio-16x9 mb-4">
+        <iframe src="https://www.youtube.com/embed/2yjwXTZQDDI" 
+                title="How to Overhead Press" 
+                allowfullscreen></iframe>
+      </div>
+
+      <h3>💪 Shoulder Press</h3>
+      <p>This pressing movement helps build shoulder mass and strength. Can be done seated or standing.</p>
+      <p><strong>Muscles worked:</strong> Deltoids, Triceps</p>
+      <p><strong>Equipment:</strong> Dumbbells or Barbell</p>
+    </div>
+
+    <div class="exercise-section">
+
+      <div class="ratio ratio-16x9 mb-4">
+        <iframe src="https://www.youtube.com/embed/eGo4IYlbE5g" 
+                title="How to Do Pull-Ups Correctly" 
+                allowfullscreen></iframe>
+      </div>
+
+      <h3>🧗 Pull Ups</h3>
+      <p>Pull ups are a great bodyweight exercise to develop upper back and arm strength.</p>
+      <p><strong>Muscles worked:</strong> Lats, Biceps, Core</p>
+      <p><strong>Variation:</strong> Try wide grip or chin-up style for different focus.</p>
+    </div>
+
+    <a href="exercises.php" class="btn-back">← Back to exercises</a>
+
   </div>
 
-    <a href="exercises.php" class="btn-back">← Back to Exercises</a>
-
-    </div>
 </body>
 </html>

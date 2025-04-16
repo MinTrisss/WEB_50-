@@ -36,7 +36,7 @@
           <div class="card-body">
             <h5 class="card-title">Strength</h5>
             <p class="card-text">Workouts focused on building muscle power and endurance.</p>
-            <a href="#" class="btn btn-primary">View Workouts</a>
+            <a href="strength.php" class="btn btn-primary">View Workouts</a>
           </div>
         </div>
       </div>
@@ -46,7 +46,7 @@
           <div class="card-body">
             <h5 class="card-title">Physical Fitness</h5>
             <p class="card-text">Overall fitness routines to improve stamina and flexibility.</p>
-            <a href="#" class="btn btn-primary">View Workouts</a>
+            <a href="physical-fitness.php" class="btn btn-primary">View Workouts</a>
           </div>
         </div>
       </div>
@@ -56,7 +56,7 @@
           <div class="card-body">
             <h5 class="card-title">Fat Loss</h5>
             <p class="card-text">Cardio and HIIT workouts designed to burn fat efficiently.</p>
-            <a href="#" class="btn btn-primary">View Workouts</a>
+            <a href="fatloss.php" class="btn btn-primary">View Workouts</a>
           </div>
         </div>
       </div>
@@ -66,7 +66,7 @@
           <div class="card-body">
             <h5 class="card-title">Weight Gain</h5>
             <p class="card-text">Mass-building routines for healthy weight and muscle gain.</p>
-            <a href="#" class="btn btn-primary">View Workouts</a>
+            <a href="weightgain.php" class="btn btn-primary">View Workouts</a>
           </div>
         </div>
       </div>

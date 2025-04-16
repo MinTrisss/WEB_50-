@@ -1,0 +1,55 @@
+body {
+    background-color: #1e1e1e;
+    color: #fff;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  .exercise-container {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 20px;
+  }
+  
+  .exercise-section {
+    background-color: #2f2f2f;
+    padding: 30px;
+    margin-bottom: 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  }
+  
+  .exercise-section img,
+  .exercise-section iframe {
+    max-width: 100%;
+    border-radius: 12px;
+    margin-bottom: 20px;
+  }
+  
+  .exercise-section h3 {
+    color: #ffce54;
+    font-weight: bold;
+  }
+  
+  .exercise-section p {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+  
+  .btn-back {
+    display: inline-block;
+    margin-top: 20px;
+    color: #fff;
+    text-decoration: none;
+    background-color: #007bff;
+    padding: 10px 20px;
+    border-radius: 8px;
+  }
+  
+  .btn-back:hover {
+    background-color: #0056b3;
+  }
+  
+  .text-center {
+    text-align: center;
+  }
+  

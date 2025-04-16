@@ -1,13 +1,12 @@
 // JavaScript chính
+// open modal
+document.getElementById('add-info-btn').addEventListener('click', function() {
+// Mở modal
+var addInfoModal = new bootstrap.Modal(document.getElementById('addInfoModal'));
+addInfoModal.show();
+});
 
-      document.getElementById('add-info-btn').addEventListener('click', function() {
-    // Mở modal
-      var addInfoModal = new bootstrap.Modal(document.getElementById('addInfoModal'));
-      addInfoModal.show();
-      });
-
-
-
+//get user information then display on modal
 document.getElementById('userDropdown').addEventListener('click', () => {
   fetch('pages/get_user_info.php')
     .then(response => {
@@ -35,10 +34,9 @@ document.getElementById('userDropdown').addEventListener('click', () => {
     });
 });
 
-
-
+//edit the information
 document.getElementById('updateForm').addEventListener('submit', function(e) {
-  e.preventDefault(); // Ngăn reload trang
+  e.preventDefault(); 
 
   const formData = new FormData(this);
 
@@ -48,15 +46,15 @@ document.getElementById('updateForm').addEventListener('submit', function(e) {
 })
 .then(res => res.text())
 .then(text => {
-  console.log("Raw response:", text); // 👈 kiểm tra tại đây
+  console.log("Raw response:", text); 
   const data = JSON.parse(text);
   if (data.success) {
-  // Đóng modal rồi reload lại trang
+  // close the modal and reload page
   setTimeout(() => {
     const modal = bootstrap.Modal.getInstance(document.getElementById('addInfoModal'));
     modal.hide();
 
-    location.reload(); // ✅ Reload lại chính trang hiện tại
+    location.reload(); 
   }, 1000);
   } else {
     document.getElementById('updateMsg').innerText = "Error: " + data.message;

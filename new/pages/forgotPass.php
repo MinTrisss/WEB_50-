@@ -22,7 +22,7 @@
 
 <?php
 if (isset($_POST['submit'])) {
-    $conn = mysqli_connect('127.0.0.1', 'root', '', 'fit_life');
+    include '../includes/db_conn.php';
     $identifier = mysqli_real_escape_string($conn, $_POST['identifier']);
 
     $query = "SELECT * FROM users WHERE username = '$identifier' OR email = '$identifier'";

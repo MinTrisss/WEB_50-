@@ -10,11 +10,7 @@ if (!isset($_SESSION['user_id'])) {
     exit;
 }
 
-$conn = mysqli_connect('127.0.0.1', 'root', '', 'fit_life');
-if (!$conn) {
-    echo json_encode(['error' => 'Database connection failed']);
-    exit;
-}
+include '../includes/db_conn.php';
 
 $user_id = $_SESSION['user_id'];
 $sql = "SELECT full_name, age, gender, height, weight FROM user_info WHERE user_id = $user_id";

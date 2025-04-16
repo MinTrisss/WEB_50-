@@ -83,7 +83,7 @@ $gmail = $_SESSION['email'] ?? '';
       <img src="assets/images/photo-1544033527-b192daee1f5b.jpeg" alt="">
 </div>
 
-<!-- Modal Thêm Thông Tin -->
+<!-- Modal Add User Information -->
 <div class="modal fade" id="addInfoModal" tabindex="-1" aria-labelledby="addInfoModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -128,7 +128,8 @@ $gmail = $_SESSION['email'] ?? '';
   </div>
 </div>
 
-<script src="assets/js/script.js"></script>
+<!-- add information and edit -->
+<script src="assets/js/script.js"></script> 
 </body>
 <?php include 'includes/footer.php'; ?>
 </html>

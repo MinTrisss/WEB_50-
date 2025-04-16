@@ -25,7 +25,6 @@ $username = $_SESSION['username'] ?? '';
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">EXPLORE</a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="../pages/workout.php">Workout log</a></li>
-            <li><a class="dropdown-item" href="../pages/goals.php">Goals</a></li>
             <li><a class="dropdown-item" href="../pages/bmi.php">BMI</a></li>
             <li><a class="dropdown-item" href="../pages/exercises.php">Exercises</a></li>
           </ul>

@@ -1,6 +1,9 @@
 body {
+    
     background-image: url('../images/photo-1544033527-b192daee1f5b.jpeg') !important;
     background-size: cover;
+    object-fit: cover;
+    display: block;
     /* filter: brightness(0.5); Làm mờ nền */
 }
 

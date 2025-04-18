@@ -25,14 +25,6 @@
       display: block;
   }
   
-  .footer-img img {
-      max-width: 100%;
-      height: auto;
-      max-height: 250px;
-      display: block;
-      margin: 0 auto;
-  }
-  
   footer {
       width: 100%;
       background: #333;
@@ -50,12 +42,13 @@
           text-align: center;
       }
   
-      .footer-img img {
-          max-height: 180px;
-      }
-  
       .header h2 {
           font-size: 1.5em;
+      }
+
+      .body-img img{
+        max-height:250%;
+        max-width:150%;
       }
   }
   
@@ -70,10 +63,6 @@
   
       .header h2 {
           font-size: 1.2em;
-      }
-  
-      .footer-img img {
-          max-height: 150px;
       }
   }
   @media (max-width: 430px) {

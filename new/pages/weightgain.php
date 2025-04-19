@@ -28,7 +28,7 @@
         <iframe src="https://www.youtube.com/embed/vT2GjY_Umpw" title="Barbell Row Tutorial" allowfullscreen></iframe>
       </div>
       <h3>🏋️‍♂️ Barbell Row</h3>
-      <p>Barbell Row giúp phát triển cơ lưng và bắp tay, cực kỳ hiệu quả cho người muốn tăng cơ lưng dày.</p>
+      <p>Barbell Row helps develop back and biceps muscles, extremely effective for those who want to increase thick back muscles.</p>
       <p><strong>Muscles worked:</strong> Back, Biceps</p>
     </div>
 
@@ -37,7 +37,7 @@
         <iframe src="https://www.youtube.com/embed/8iPEnn-ltC8" title="Incline Dumbbell Press Tutorial" allowfullscreen></iframe>
       </div>
       <h3>🥩 Incline Dumbbell Press</h3>
-      <p>Incline Dumbbell Press tập trung vào phần ngực trên, giúp bạn phát triển phần thân trên vạm vỡ.</p>
+      <p>Incline Dumbbell Press focuses on the upper chest, helping you develop a muscular upper body.</p>
       <p><strong>Muscles worked:</strong> Chest, Shoulders, Triceps</p>
     </div>
 
@@ -46,7 +46,7 @@
         <iframe src="https://www.youtube.com/embed/QOVaHwm-Q6U" title="Dumbbell Lunges Tutorial" allowfullscreen></iframe>
       </div>
       <h3>🦵 Dumbbell Lunges</h3>
-      <p>Đây là bài tập đơn giản nhưng rất hiệu quả trong việc phát triển cơ mông và chân với dumbbell.</p>
+      <p>This is a simple but very effective exercise in developing glutes and legs with dumbbells.</p>
       <p><strong>Muscles worked:</strong> Quads, Glutes, Hamstrings</p>
     </div>
 
@@ -55,7 +55,8 @@
         <iframe src="https://www.youtube.com/embed/B-aVuyhvLHU" title="Dumbbell Shoulder Press Tutorial" allowfullscreen></iframe>
       </div>
       <h3>💪 Dumbbell Shoulder Press</h3>
-      <p>Đây là bài tập tuyệt vời giúp phát triển cơ vai, có thể thực hiện ngồi hoặc đứng tùy chọn.</p>
+      <p>
+This is a great exercise to develop the shoulder muscles, can be done sitting or standing depending on your preference.</p>
       <p><strong>Muscles worked:</strong> Shoulders, Triceps</p>
     </div>
 

@@ -1,3 +1,5 @@
+
+
 .header {
       height: 100px;
       background: #333;
@@ -71,8 +73,62 @@
       }
   }
   
+/* Sửa đổi thanh tìm kiếm */
+.search-form {
+    background-color: rgba(30, 30, 30, 0.5); /* Nền mờ tối */
+    backdrop-filter: blur(8px); /* Mờ nền phía sau */
+    border-radius: 12px;
+    padding: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    border: none; /* Xóa viền mặc định */
+    display: flex;
+    align-items: center;
+}
 
+/* Thanh tìm kiếm */
+.search-form input[type="search"] {
+    background-color: transparent; /* Trong suốt */
+    color: white; /* Văn bản màu trắng */
+    border: none; /* Xóa viền */
+    box-shadow: none; /* Xóa bóng */
+    outline: none; /* Xóa viền focus */
+    padding: 5px 10px;
+    flex-grow: 1;
+}
 
+/* Placeholder text */
+.search-form input[type="search"]::placeholder {
+    color: #ccc; /* Màu placeholder nhạt */
+}
+
+/* Gỡ bỏ viền khi focus */
+.search-form input[type="search"]:focus {
+    background-color: transparent; /* Giữ trong suốt */
+    box-shadow: none;
+    border: none;
+    color: #fff;
+}
+
+/* Dropdown gợi ý */
+#suggestionsBox {
+    background-color: rgba(47, 47, 47, 0.95); /* Nền dropdown tối */
+    backdrop-filter: blur(6px);
+    border: none;
+    border-radius: 0 0 12px 12px;
+    z-index: 10;
+}
+
+/* Các phần tử trong dropdown */
+#suggestionsBox li {
+    color: #000;
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+/* Hover khi di chuột vào */
+#suggestionsBox li:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
 
   
   

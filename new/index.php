@@ -82,6 +82,56 @@ $gmail = $_SESSION['email'] ?? '';
       <img src="assets/images/photo-1544033527-b192daee1f5b.jpeg" alt="">
 </div>
 
+<!-- Search Bar Section -->
+<div class="container my-5">
+  <form action="pages/search.php" method="GET" class="d-flex position-relative search-form" role="search">
+    <input class="form-control me-2" 
+          type="search" 
+          placeholder="Search workouts..." 
+          aria-label="Search" 
+          name="query"
+          id="searchInput"
+          autocomplete="off"
+          onkeyup="fetchSuggestions()">
+    
+    <ul id="suggestionsBox" class="list-group position-absolute w-100" style="top: 100%; z-index: 1000;"></ul>
+
+    <button class="btn btn-outline-warning" type="submit">Search</button>
+  </form>
+
+  <script>
+    function fetchSuggestions() {
+      const input = document.getElementById('searchInput');
+      const query = input.value.trim();
+      const suggestionBox = document.getElementById('suggestionsBox');
+
+      if (query.length === 0) {
+        suggestionBox.innerHTML = '';
+        return;
+      }
+
+      fetch(`pages/suggestions.php?query=${encodeURIComponent(query)}`)
+        .then(response => response.json())
+        .then(data => {
+          suggestionBox.innerHTML = '';
+          data.forEach(item => {
+            const li = document.createElement('li');
+            li.textContent = item;
+            li.classList.add('list-group-item', 'list-group-item-action');
+            li.style.cursor = 'pointer';
+            li.onclick = () => {
+              input.value = item;
+              suggestionBox.innerHTML = '';
+            };
+            suggestionBox.appendChild(li);
+          });
+        });
+    }
+  </script>
+
+</div>
+
+
 <!-- Modal Add User Information -->
 <div class="modal fade" id="addInfoModal" tabindex="-1" aria-labelledby="addInfoModalLabel" aria-hidden="true">
   <div class="modal-dialog">

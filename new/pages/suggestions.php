@@ -12,7 +12,17 @@ $workouts = [
   'Shoulder Press',
   'Jumping Jacks',
   'Bodyweight Squats',
-  'High Knees'
+  'High Knees',
+  'Hiit',
+  'Jump Rope',
+  'Jump Squats',
+  'Bicycle Crunches',
+  'Burpees',
+  'Leg Press',
+  'Barbell Row',
+  'Incline Dumbbell Press',
+  'Dumbbell Lunges',
+  'Dumbbell Shoulder Press'
 ];
 
 $suggestions = [];

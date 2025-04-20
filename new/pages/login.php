@@ -36,6 +36,7 @@ if (isset($_POST['submit'])) {
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="../assets/css/login.css">
     <link rel="stylesheet" href="../assets/themify-icons/themify-icons.css">
@@ -63,13 +64,7 @@ if (isset($_POST['submit'])) {
             </div>
             <button type="submit" name="submit" class="signin-btn">Login</button>
         </form>
-        <div class="social-login">
-            <p>Login with</p>
-            <div class="social-icons">
-                <button class="google-login ti-google"></button>
-                <button class="facebook-login ti-facebook"></button>
-            </div>
-        </div>
+        
         <p class="signup-text">Don't have account? <a href="../pages/signUp.php">Sign up</a></p>
     </div>
 </body>

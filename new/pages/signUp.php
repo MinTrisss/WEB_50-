@@ -1,9 +1,5 @@
 <?php 
-  $conn = mysqli_connect('127.0.0.1', 'root', '', 'fit_life');
-  if (!$conn) {
-  die("Connection failed: " . mysqli_connect_error());
-  }
-
+  include '../includes/db_conn.php';
   if(isset($_POST['submit'])){
         $username=mysqli_real_escape_string($conn, $_POST['username']);
         $email = mysqli_real_escape_string($conn, $_POST['email']);

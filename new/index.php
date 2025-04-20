@@ -28,26 +28,27 @@ $gmail = $_SESSION['email'] ?? '';
             <?= $isLoggedIn ? "Welcome $username to FIT LIFE" : "FIT LIFE" ?>
       </a>
 
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+      <div class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
             <span class="navbar-toggler-icon"></span>
-      </button>
+      </div>
 
-      <div class="collapse navbar-collapse justify-content-end" id="navbarContent">
-            <ul class="navbar-nav mb-2 mb-lg-0">
-            <li class="nav-item">
+      <div class="navbar-nav flex-column flex-lg-row gap-2">
+        <!-- ms-auto đẩy sang phải, flex-column ở mobile, flex-lg-row ở desktop -->
+        <!-- Mỗi thẻ <li> thành <div> để tránh lỗi Bootstrap class -->
+        <div class="nav-item">
             <a class="nav-link active" href="./index.php">HOME</a>
-            </li>
-            <li class="nav-item">
+        </div>
+        <div class="nav-item">
             <a class="nav-link active" href="pages/about.php">ABOUT</a>
-            </li>
-            <li class="nav-item dropdown">
+        </div>
+        <div class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">EXPLORE</a>
-            <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="pages/workout.php">Workout log</a></li>
-                  <li><a class="dropdown-item" href="pages/bmi.php">BMI</a></li>
-                  <li><a class="dropdown-item" href="pages/exercises.php">Exercises</a></li>
-            </ul>
-            </li>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="pages/workout.php">Workout log</a>
+                <a class="dropdown-item" href="pages/bmi.php">BMI</a>
+                <a class="dropdown-item" href="pages/exercises.php">Exercises</a>
+            </div>
+        </div>
 
             <?php if ($isLoggedIn): ?>
             <li class="nav-item dropdown">
@@ -75,62 +76,21 @@ $gmail = $_SESSION['email'] ?? '';
             <?php endif; ?>
             </ul>
       </div>
-      </div>
-      </nav>
-      </header>
-<div class="body-img">
-      <img src="assets/images/photo-1544033527-b192daee1f5b.jpeg" alt="">
-</div>
-
+    </div>
+  </nav>
+</header>
 <!-- Search Bar Section -->
 <div class="container my-5">
   <form action="pages/search.php" method="GET" class="d-flex position-relative search-form" role="search">
-    <input class="form-control me-2" 
-          type="search" 
-          placeholder="Search workouts..." 
-          aria-label="Search" 
-          name="query"
-          id="searchInput"
-          autocomplete="off"
-          onkeyup="fetchSuggestions()">
-    
+    <input class="form-control me-2" type="search" placeholder="Search workouts..." 
+          aria-label="Search" name="query" id="searchInput" autocomplete="off" onkeyup="fetchSuggestions()">
     <ul id="suggestionsBox" class="list-group position-absolute w-100" style="top: 100%; z-index: 1000;"></ul>
-
     <button class="btn btn-outline-warning" type="submit">Search</button>
   </form>
-
-  <script>
-    function fetchSuggestions() {
-      const input = document.getElementById('searchInput');
-      const query = input.value.trim();
-      const suggestionBox = document.getElementById('suggestionsBox');
-
-      if (query.length === 0) {
-        suggestionBox.innerHTML = '';
-        return;
-      }
-
-      fetch(`pages/suggestions.php?query=${encodeURIComponent(query)}`)
-        .then(response => response.json())
-        .then(data => {
-          suggestionBox.innerHTML = '';
-          data.forEach(item => {
-            const li = document.createElement('li');
-            li.textContent = item;
-            li.classList.add('list-group-item', 'list-group-item-action');
-            li.style.cursor = 'pointer';
-            li.onclick = () => {
-              input.value = item;
-              suggestionBox.innerHTML = '';
-            };
-            suggestionBox.appendChild(li);
-          });
-        });
-    }
-  </script>
-
 </div>
-
+<div class="body-img">
+      <img src="assets/images/photo-1544033527-b192daee1f5b.jpeg" alt="">
+</div>
 
 <!-- Modal Add User Information -->
 <div class="modal fade" id="addInfoModal" tabindex="-1" aria-labelledby="addInfoModalLabel" aria-hidden="true">

@@ -40,34 +40,50 @@
             }
       }
 ?>
-      <div class="bmi-body d-flex align-items-center">
-            <div class="bmi-calculate flex-fill">
-                  <form method="POST">
-                        <div class="mb-3 text-start">
-                            <label for="weight" class="form-label fw-bold">Weight (kg)</label>
-                            <input type="number" class="form-control" name="weight" placeholder="Enter your weight">
-                        </div>
-                        <div class="mb-3 text-start">
-                            <label for="height" class="form-label fw-bold">Height (cm)</label>
-                            <input type="number" class="form-control" name="height" placeholder="Enter your height">
-                        </div>
-                        <button type="submit" class="btn btn-primary w-100">Calculate BMI</button>
-                        <div class="mt-3 fw-bold" id="result"><?= $bmi_result ?></div>
-                    </form>
-            </div>
-            <div class="bmi-info flex-fill text-center">
-                  <h2>What is BMI?</h2>
-                  <ul>
-                        <li class="text-start">BMI(Body Mass Index) is a measure of weight relative to height.</li>
-                        <li class="text-start">BMI is a quick, low-cost, and reliable screening measure for underweight, overweight, or obesity.</li>
-                        <li class="text-start">BMI is a valuable population health measure used worldwide.</li>
-                        <li class="text-start">For individuals, BMI should be considered with other factors, such as blood pressure, cholesterol levels, and physical examination.</li>
-                  </ul>
-            </div>
+<div class="container py-4">
+  <div class="row">
+    <!-- BMI Info -->
+    <div class="col-12 col-md-6 order-1 order-md-2 mb-4">
+      <div class="bmi-info text-center p-3 border rounded bg-light h-100">
+        <h2>What is BMI?</h2>
+        <ul class="text-start">
+          <li>BMI (Body Mass Index) is a measure of weight relative to height.</li>
+          <li>BMI is a quick, low-cost, and reliable screening measure.</li>
+          <li>Used to detect underweight, overweight, or obesity.</li>
+          <li>It's a helpful population health measure used worldwide.</li>
+          <li>Should be considered with other health factors.</li>
+        </ul>
       </div>
-      <div class="bmi-img d-flex justify-content-center align-items-center">
-            <img src="../assets/images/BMI-TABLE.png" alt="">
+    </div>
+
+    <!-- BMI Form -->
+    <div class="col-12 col-md-6 order-2 order-md-1 mb-4">
+      <div class="bmi-calculate p-3 border rounded bg-white h-100">
+        <form method="POST">
+          <div class="mb-3 text-start">
+            <label for="weight" class="form-label fw-bold">Weight (kg)</label>
+            <input type="number" class="form-control" name="weight" placeholder="Enter your weight">
+          </div>
+          <div class="mb-3 text-start">
+            <label for="height" class="form-label fw-bold">Height (cm)</label>
+            <input type="number" class="form-control" name="height" placeholder="Enter your height">
+          </div>
+          <button type="submit" class="btn btn-primary w-100">Calculate BMI</button>
+          <div class="mt-3 fw-bold" id="result"><?= $bmi_result ?></div>
+        </form>
       </div>
+    </div>
+  </div>
+
+  <!-- BMI Image -->
+  <div class="row mt-4">
+    <div class="col text-center">
+      <img src="../assets/images/BMI-TABLE.png" alt="BMI Table" class="img-fluid rounded shadow">
+    </div>
+  </div>
+</div>
+
+
       <?php include '../includes/footer.php'; ?>
 </body>
 </html>

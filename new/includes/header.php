@@ -14,7 +14,7 @@ $username = $_SESSION['username'] ?? '';
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-      <ul class="navbar-nav text-end">
+      <ul class="navbar-nav mb-2 mb-lg-0">
         <li class="nav-item">
           <a class="nav-link active" href="../index.php">HOME</a>
         </li>
@@ -107,6 +107,13 @@ $username = $_SESSION['username'] ?? '';
 </script>
 
 <script>
+  document.getElementById('add-info-btn').addEventListener('click', function() {
+// Mở modal
+var addInfoModal = new bootstrap.Modal(document.getElementById('addInfoModal'));
+addInfoModal.show();
+});
+
+//get user information then display on modal
 document.getElementById('userDropdown').addEventListener('click', () => {
   fetch('../pages/get_user_info.php')
     .then(response => {
@@ -118,7 +125,8 @@ document.getElementById('userDropdown').addEventListener('click', () => {
       if (data.error) {
         document.getElementById('user-info-loading').innerText = data.error;
       } else {
-        document.getElementById('user-info-loading').innerHTML = `
+        document.getElementById('user-info-loading').innerHTML = 
+          `<div><strong>Gmail:</strong>  ${data.email} </div>
           <div><strong>Name:</strong> ${data.full_name}</div>
           <div><strong>Age:</strong> ${data.age}</div>
           <div><strong>Gender:</strong> ${data.gender}</div>

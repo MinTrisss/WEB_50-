@@ -19,7 +19,7 @@ document.getElementById('userDropdown').addEventListener('click', () => {
         document.getElementById('user-info-loading').innerText = data.error;
       } else {
         document.getElementById('user-info-loading').innerHTML = 
-          `<div><strong>Gmail:</strong> <?= $gmail ?> </div>
+          `<div><strong>Gmail:</strong>  ${data.email} </div>
           <div><strong>Name:</strong> ${data.full_name}</div>
           <div><strong>Age:</strong> ${data.age}</div>
           <div><strong>Gender:</strong> ${data.gender}</div>
@@ -64,3 +64,33 @@ document.getElementById('updateForm').addEventListener('submit', function(e) {
   document.getElementById('updateMsg').innerText = "Information updated successfully!";
 });
 });
+
+//search 
+function fetchSuggestions() {
+  const input = document.getElementById('searchInput');
+  const query = input.value.trim();
+  const suggestionBox = document.getElementById('suggestionsBox');
+
+  if (query.length === 0) {
+    suggestionBox.innerHTML = '';
+    return;
+  }
+
+  fetch(`pages/suggestions.php?query=${encodeURIComponent(query)}`)
+    .then(response => response.json())
+    .then(data => {
+      suggestionBox.innerHTML = '';
+      data.forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = item;
+        li.classList.add('list-group-item', 'list-group-item-action');
+        li.style.cursor = 'pointer';
+        li.onclick = () => {
+          input.value = item;
+          suggestionBox.innerHTML = '';
+        };
+        suggestionBox.appendChild(li);
+      });
+    });
+}
+  

@@ -1,33 +1,87 @@
 .header{
-      background: #333;
-      color: white;
+    background: #333;
+    color: white;
 }
 .bmi-calculate{
-      max-width: 100%;
+    max-width: 100%;
 }
 .bmi-info{
-      max-width: 50vw;
-      height: 250px;
+    max-width: 50vw;
+    height: 250px;
 }
 .bmi-body{
-      margin-top: 20px;
-      margin-left: 20px;
+    margin-top: 20px;
+    margin-left: 20px;
 }
-.bmi-img img{
-      margin-top: 30px;
-      max-height: 30%;
-      max-width: 40%;
-}
-.footer-img img{
-      max-height: 250px;
-      max-width: 500px;
-}
+.bmi-img img {
+      max-width: 100%;
+      height: auto;
+    }
+    
 footer{
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      background: #333;
-      color: white;
-      text-align: center;
-      height: 300px;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #333;
+    color: white;
+    text-align: center;
+    height: 300px;
 }
+/* Responsive cho màn hình nhỏ hơn 992px (tablet và mobile) */
+@media (max-width: 992px) {
+    .bmi-body {
+      flex-direction: column;
+      margin: 20px;
+      gap: 20px;
+    }
+  
+    .bmi-calculate,
+    .bmi-info {
+      max-width: 100%;
+    }
+  
+    .bmi-info {
+      height: auto;
+      text-align: start;
+    }
+  
+    .bmi-img img {
+      max-width: 90%;
+      height: auto;
+    }
+  
+    .footer-img img {
+      max-width: 90%;
+      height: auto;
+    }
+  
+    footer {
+      height: auto;
+      padding: 20px;
+    }
+  }
+
+  @media (max-width: 768px) {
+      .bmi-body {
+        flex-direction: column; /* chuyển layout thành dọc */
+      }
+    
+      .bmi-calculate {
+        order: 2; /* form BMI nằm dưới */
+      }
+    
+      .bmi-info {
+        order: 1; /* phần info nằm trên */
+      }
+    
+      .bmi-img {
+        margin-top: 20px;
+      }
+    
+      .bmi-img img {
+        max-width: 100%;
+        height: auto;
+      }
+    }
+    
+  

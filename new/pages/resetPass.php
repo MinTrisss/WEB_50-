@@ -29,27 +29,26 @@
 
 <?php
 if (isset($_POST['submit'])) {
-    $conn = mysqli_connect('127.0.0.1', 'root', '', 'fit_life');
+  include '../includes/db_conn.php';
+  $user_id = $_POST['user_id'];
+  $new_password = $_POST['new_password'];
+  $confirm_pass = $_POST['confirm_password'];
 
-    $user_id = $_POST['user_id'];
-    $new_password = $_POST['new_password'];
-    $confirm_pass = $_POST['confirm_password'];
+  if ($new_password === $confirm_pass) {
+      $hashed_password = password_hash($new_password, PASSWORD_DEFAULT);
 
-    if ($new_password === $confirm_pass) {
-        $hashed_password = password_hash($new_password, PASSWORD_DEFAULT);
+      $query = "UPDATE users SET password = '$hashed_password' WHERE id = $user_id";
+      if (mysqli_query($conn, $query)) {
+          header("Location: login.php");
+          exit();
+      } else {
+          echo "<script>alert('Update failed.');</script>";
+      }
+  } else {
+          echo "<p style='text-align:center;color:red;'>Account not found!</p>";
+  }
 
-        $query = "UPDATE users SET password = '$hashed_password' WHERE id = $user_id";
-        if (mysqli_query($conn, $query)) {
-            header("Location: login.php");
-            exit();
-        } else {
-            echo "<script>alert('Update failed.');</script>";
-        }
-    } else {
-            echo "<p style='text-align:center;color:red;'>Account not found!</p>";
-    }
-
-    mysqli_close($conn);
+  mysqli_close($conn);
 }
 ?>
 </html>

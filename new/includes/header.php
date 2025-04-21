@@ -43,6 +43,8 @@ $username = $_SESSION['username'] ?? '';
                         </li>
                         <!-- Thêm thông tin -->
                         <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item text-danger" href="../pages/changePass.php">Change password</a></li>
+                        <li><hr class="dropdown-divider"></li>
                         <li><button id="add-info-btn" class="dropdown-item text-danger">Edit information</button></li>
                         <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item text-danger" href="../pages/logout.php">Log out</a></li>
@@ -68,6 +70,10 @@ $username = $_SESSION['username'] ?? '';
       </div>
       <div class="modal-body">
         <form id="updateForm" action="update_user_info.php" method="POST">
+          <div class="mb-3">
+            <label for="gmail" class="form-label">Gmail:</label>
+            <input type="text" class="form-control" id="gmail" name="gmail" required>
+          </div>
           <div class="mb-3">
             <label for="name" class="form-label">Name:</label>
             <input type="text" class="form-control" id="name" name="name" required>

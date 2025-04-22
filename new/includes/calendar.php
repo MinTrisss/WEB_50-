@@ -40,6 +40,24 @@ if (isset($_SESSION['user_id'])) {
 // Lấy tháng & năm
 $month = $_GET['month'] ?? date('m');
 $year = $_GET['year'] ?? date('Y');
+
+$month = (int)$month;
+$year = (int)$year;
+
+// Tính tháng trước và sau
+$prevMonth = $month - 1;
+$nextMonth = $month + 1;
+$prevYear = $year;
+$nextYear = $year;
+
+if ($prevMonth < 1) {
+    $prevMonth = 12;
+    $prevYear--;
+}
+if ($nextMonth > 12) {
+    $nextMonth = 1;
+    $nextYear++;
+}
 $first_day = mktime(0, 0, 0, $month, 1, $year);
 $days_in_month = date('t', $first_day);
 $start_day = date('w', $first_day);
@@ -47,7 +65,12 @@ $today = date('Y-m-d');
 ?>
 
 <div class="container mt-4">
-    <h2 class="text-center mb-4">Workout schedule - <?php echo "$month/$year"; ?></h2>
+    <div class="d-flex justify-content-center align-items-center gap-4 mb-4">
+        <a href="?month=<?= $prevMonth ?>&year=<?= $prevYear ?>" class="btn btn-lg px-4">&lt;</a>
+        <h2 class="m-0 fs-3"><?= "$month / $year" ?></h2>
+        <a href="?month=<?= $nextMonth ?>&year=<?= $nextYear ?>" class="btn btn-lg px-4">&gt;</a>
+    </div>
+
     <div class="table-responsive">
         <table class="table table-bordered text-center align-middle">
             <thead class="table-dark">
@@ -84,7 +107,7 @@ $today = date('Y-m-d');
                             </form>
                             <button type="button" class="btn btn-sm btn-outline-light <?= $isToday ? 'btn-light text-primary' : 'btn-info' ?>" data-bs-toggle="modal" 
                                 data-bs-target="#noteModal"
-                                onclick="openNoteModal('<?= $date ?>', `<?= htmlspecialchars($note) ?>`)">Add comment
+                                onclick="openNoteModal('<?= $date ?>', `<?= htmlspecialchars($note) ?>`)">Let's work
                             </button>
                         </div>
                         </td>
@@ -132,4 +155,9 @@ function openNoteModal(date, content) {
     document.getElementById('modalDate').value = date;
     document.getElementById('modalContent').value = content;
 }
+
+const urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.get('month') || urlParams.get('year')) {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 </script>

@@ -1,7 +1,6 @@
 <?php
 header('Content-Type: application/json');
-ob_start(); // chặn mọi output lỗi nhỏ
-
+ob_start();
 session_start();
 include '../includes/db_conn.php';
 
@@ -16,15 +15,15 @@ $age = $_POST['age'] ?? null;
 $gender = $_POST['gender'] ?? '';
 $weight = $_POST['weight'] ?? null;
 $height = $_POST['height'] ?? null;
+$email = $_POST['gmail'] ?? null;
 
-// Kiểm tra thông tin đã có chưa
+// Kiểm tra user_info
 $check = $conn->prepare("SELECT * FROM user_info WHERE user_id = ?");
 $check->bind_param("i", $user_id);
 $check->execute();
-$check->store_result();
+$check->store_result();  
 
 if ($check->num_rows > 0) {
-    // Đã có -> cập nhật
     $stmt = $conn->prepare("
         UPDATE user_info SET
             full_name = ?, age = ?, gender = ?, weight = ?, height = ?
@@ -32,18 +31,22 @@ if ($check->num_rows > 0) {
     ");
     $stmt->bind_param("sisdsi", $name, $age, $gender, $weight, $height, $user_id);
 } else {
-    // Chưa có -> thêm mới
     $stmt = $conn->prepare("
         INSERT INTO user_info (user_id, full_name, age, gender, weight, height)
         VALUES (?, ?, ?, ?, ?, ?)
     ");
-    $stmt->bind_param("isisii", $user_id, $name, $age, $gender, $weight, $height);
+    $stmt->bind_param("isidii", $user_id, $name, $age, $gender, $weight, $height);
 }
 
-if ($stmt->execute()) {
-    header("Location: ../index.php"); 
+$stmt1 = $conn->prepare("
+    UPDATE users SET email = ? WHERE id = ?
+");
+$stmt1->bind_param("si", $email, $user_id);
+
+if ($stmt->execute() && $stmt1->execute()) {
+    header("Location: ../index.php");
     exit;
 } else {
-    echo "Save error: " . $stmt->error;
+    echo json_encode(['error' => 'Save failed', 'detail' => $stmt->error . ' / ' . $stmt1->error]);
 }
 ?>

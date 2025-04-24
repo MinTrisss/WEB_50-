@@ -14,7 +14,7 @@
 </head>
 <body>
 <?php include '../includes/header.php'; ?>  
-<?php include '../includes/calendar.php'?>
+<?php include '../includes/calendar.php';?>
 </body>
 <?php include '../includes/footer.php'; ?>
 </html>

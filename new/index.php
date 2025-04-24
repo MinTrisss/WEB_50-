@@ -24,17 +24,16 @@ $gmail = $_SESSION['email'] ?? '';
 <header>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-3">
       <div class="container-fluid">
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand" href="./index.php">
             <?= $isLoggedIn ? "Welcome $username to FIT LIFE" : "FIT LIFE" ?>
       </a>
 
-      <div class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
-            <span class="navbar-toggler-icon"></span>
-      </div>
+      <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
 
       <div class="navbar-nav flex-column flex-lg-row gap-2">
-        <!-- ms-auto đẩy sang phải, flex-column ở mobile, flex-lg-row ở desktop -->
-        <!-- Mỗi thẻ <li> thành <div> để tránh lỗi Bootstrap class -->
         <div class="nav-item">
             <a class="nav-link active" href="./index.php">HOME</a>
         </div>
@@ -58,7 +57,6 @@ $gmail = $_SESSION['email'] ?? '';
                   <ul class="dropdown-menu dropdown-menu-end p-3" aria-labelledby="userDropdown" style="min-width: 250px;">
                         <li><strong>Personal information</strong></li>
                         <li><hr class="dropdown-divider"></li>
-                        <!-- Hiển thị thông tin người dùng -->
                         <li id="user-info">
                         <span id="user-info-loading">Loading...</span>
                         </li>

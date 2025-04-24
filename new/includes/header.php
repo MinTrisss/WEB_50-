@@ -7,7 +7,7 @@ $username = $_SESSION['username'] ?? '';
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-3">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="../index.php">
       <?= $isLoggedIn ? "Welcome $username to FIT LIFE" : "FIT LIFE" ?>
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -103,14 +103,6 @@ $username = $_SESSION['username'] ?? '';
     </div>
   </div>
 </div>
-
-<script>
-      document.getElementById('add-info-btn').addEventListener('click', function() {
-    // Mở modal
-      var addInfoModal = new bootstrap.Modal(document.getElementById('addInfoModal'));
-      addInfoModal.show();
-      });
-</script>
 
 <script>
   document.getElementById('add-info-btn').addEventListener('click', function() {

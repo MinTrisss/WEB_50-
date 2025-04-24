@@ -107,7 +107,7 @@ $today = date('Y-m-d');
                             </form>
                             <button type="button" class="btn btn-sm btn-outline-light <?= $isToday ? 'btn-light text-primary' : 'btn-info' ?>" data-bs-toggle="modal" 
                                 data-bs-target="#noteModal"
-                                onclick="openNoteModal('<?= $date ?>', `<?= htmlspecialchars($note) ?>`)">Let's work
+                                onclick='openNoteModal("<?= $date ?>", <?= json_encode($note) ?>)'>Let's work
                             </button>
                         </div>
                         </td>

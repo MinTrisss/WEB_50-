@@ -23,6 +23,9 @@
       <p class="lead text-center mb-0">
         Our goal is to make people healthier and happier by offering the simplest way to track workouts, monitor progress, and stay connected with fitness goals.
       </p>
+      <p>
+        User 1 here.
+      </p>
     </div>
 
     <!-- BỔ SUNG PHẦN GIỚI THIỆU CHI TIẾT -->

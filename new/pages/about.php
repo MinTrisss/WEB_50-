@@ -39,6 +39,7 @@
         <div class="col-md-6">
           <h4 class="fw-semibold mb-3">🧭 Mission – "Track to Transform"</h4>
           <p>We started this project from our personal fitness journeys. Struggling with weight, packed school schedules, and a lack of motivation, we deeply understand how hard it is to maintain a healthy lifestyle—especially without knowing where to start.</p>
+          <p>User 2 here</p>
         </div>
         <div class="col-md-6">
           <img src="../assets/images/mission.jpg" class="img-fluid rounded-4 shadow" alt="Mission">
